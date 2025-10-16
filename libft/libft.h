@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:11:25 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/07/19 20:34:48 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/16 18:21:23 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ int		ft_printf(const char *s, ...);
 void	ft_strrev(char *str);
 int		ft_intlen(unsigned int n);
 char	*ft_utoa(unsigned int n);
+long	ft_ltoi(const char *nptr);
 char	*get_next_line(int fd);
 
 #endif

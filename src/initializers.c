@@ -6,21 +6,25 @@
 /*   By: fbenini- <your@mail.com>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:12:51 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/16 16:48:06 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/16 18:24:13 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <limits.h>
 
 static int	check_if_numbers(char **splitted_numbers)
 {
-	int	i;
-	int	j;
+	int			i;
+	int			j;
 
 	i = 0;
 	while (splitted_numbers[i])
 	{
 		j = 0;
+		if (ft_ltoi(splitted_numbers[i]) > INT_MAX
+			|| ft_ltoi(splitted_numbers[i]) < INT_MIN)
+			return (0);
 		while (splitted_numbers[i][j])
 		{
 			if (!ft_isdigit(splitted_numbers[i][j]))
@@ -73,7 +77,7 @@ static int	count_numbers_on_list(t_list **stack_a, int num)
 
 	count = 0;
 	current = *stack_a;
-	while(current)
+	while (current)
 	{
 		current_number = *(int *)current->content;
 		if (current_number == num)

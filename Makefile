@@ -6,7 +6,7 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/16 16:21:59 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/16 18:02:24 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ LIBFT_DIR = ./libft/
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ./src/main.c \
-	   ./src/initializers.c
+	   ./src/initializers.c \
+	   ./src/stack_functions.c
 
 OBJS = $(SRCS:.c=.o)
 
