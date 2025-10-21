@@ -6,7 +6,7 @@
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:32:13 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 14:55:46 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:14:59 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	if (is_stack_sorted(&stack_a, &stack_b))
+	{
+		ft_lstclear(&stack_a, free);
 		return (0);
+	}
 	sort_stack(&stack_a, &stack_b);
 	ft_lstclear(&stack_a, free);
 	return (0);
