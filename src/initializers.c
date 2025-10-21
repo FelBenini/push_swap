@@ -6,7 +6,7 @@
 /*   By: fbenini- <your@mail.com>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:12:51 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/16 18:24:13 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:11:06 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,28 @@
 
 static int	check_if_numbers(char **splitted_numbers)
 {
-	int			i;
-	int			j;
+	int		i;
+	int		j;
 
 	i = 0;
 	while (splitted_numbers[i])
 	{
 		j = 0;
-		if (ft_ltoi(splitted_numbers[i]) > INT_MAX
-			|| ft_ltoi(splitted_numbers[i]) < INT_MIN)
-			return (0);
+		if (splitted_numbers[i][j] == '+' || splitted_numbers[i][j] == '-')
+		{
+			if (!splitted_numbers[i][j + 1])
+				return (0);
+			j++;
+		}
 		while (splitted_numbers[i][j])
 		{
 			if (!ft_isdigit(splitted_numbers[i][j]))
-			{
-				if (!((splitted_numbers[i][j] == '-'
-						|| splitted_numbers[i][j] == '+') && j == 0))
-					return (0);
-			}
+				return (0);
 			j++;
 		}
+		if (ft_ltoi(splitted_numbers[i]) > INT_MAX
+			|| ft_ltoi(splitted_numbers[i]) < INT_MIN)
+			return (0);
 		i++;
 	}
 	return (1);
@@ -117,6 +119,8 @@ int	init_stack_a(t_list **stack_a, int argc, char *argv[])
 		}
 		i++;
 	}
+	if (ft_lstsize(*stack_a) == 0)
+		return (0);
 	if (!check_for_dup(stack_a))
 	{
 		ft_lstclear(stack_a, free);
