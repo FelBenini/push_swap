@@ -6,7 +6,7 @@
 /*   By: fbenini- <your@mail.com>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:03:58 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 13:24:54 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:06:24 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int		is_stack_sorted(t_list **stack_a, t_list **stack_b);
 void	push(t_list **stack_a, t_list **stack_b, char *op);
 void	rotate(t_list **stack_a, t_list **stack_b, char *op);
 void	reverse_rotate(t_list **stack_a, t_list **stack_b, char *op);
+void	sort_two(t_list **stack_a, t_list **stack_b);
+void	sort_three(t_list **stack_a, t_list **stack_b);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:32:13 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 13:24:39 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:04:26 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@ void	test_put(void *num)
 
 static void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
-	reverse_rotate(stack_a, stack_b, "rra");
+	if (ft_lstsize(*stack_a) == 2)
+		sort_two(stack_a, stack_b);
+	if (ft_lstsize(*stack_a) == 3)
+		sort_three(stack_a, stack_b);
 }
 
 int	main(int argc, char *argv[])
@@ -41,8 +44,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	sort_stack(&stack_a, &stack_b);
 	ft_lstiter(stack_a, test_put);
-	ft_printf("\nB:\n");
-	ft_lstiter(stack_b, test_put);
 	ft_lstclear(&stack_a, free);
 	return (0);
 }
