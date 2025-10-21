@@ -6,7 +6,7 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/21 13:47:41 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/21 14:23:25 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,11 @@ $(LIBFT):
 all: $(NAME)
 
 clean:
+	@$(MAKE) clean -C $(LIBFT_DIR)
 	rm -rf $(OBJS)
 
 fclean: clean
+	rm -rf $(LIBFT)
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
