@@ -6,7 +6,7 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/20 19:14:54 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/21 13:02:03 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRCS = ./src/main.c \
 	   ./src/initializers.c \
 	   ./src/swap_functions.c \
+	   ./src/push_functions.c \
 	   ./src/validate.c
 
 OBJS = $(SRCS:.c=.o)
