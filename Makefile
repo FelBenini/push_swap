@@ -6,7 +6,7 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/21 14:23:25 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/22 15:55:05 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ SRCS = ./src/main.c \
 	   ./src/push_functions.c \
 	   ./src/validate.c \
 	   ./src/rotate_functions.c \
-	   ./src/sort_small.c
+	   ./src/sort_small.c \
+	   ./src/stack_finders.c
 
 OBJS = $(SRCS:.c=.o)
 

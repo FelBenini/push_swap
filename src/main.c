@@ -6,7 +6,7 @@
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 17:32:13 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 16:14:59 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/22 15:54:12 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ static void	sort_stack(t_list **stack_a, t_list **stack_b)
 {
 	if (ft_lstsize(*stack_a) == 2)
 		sort_two(stack_a, stack_b);
-	if (ft_lstsize(*stack_a) == 3)
+	else if (ft_lstsize(*stack_a) == 3)
 		sort_three(stack_a, stack_b);
+	else if (ft_lstsize(*stack_a) == 4)
+		sort_four(stack_a, stack_b);
+	else if (ft_lstsize(*stack_a) == 5)
+		sort_five(stack_a, stack_b);
 }
 
 int	main(int argc, char *argv[])
@@ -46,6 +50,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	sort_stack(&stack_a, &stack_b);
+	ft_lstiter(stack_a, test_put);
+	ft_printf("BBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n");
+	ft_lstiter(stack_b, test_put);
 	ft_lstclear(&stack_a, free);
+	ft_lstclear(&stack_b, free);
 	return (0);
 }
