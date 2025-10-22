@@ -27,5 +27,6 @@ void	sort_four(t_list **stack_a, t_list **stack_b);
 void	sort_five(t_list **stack_a, t_list **stack_b);
 int		find_min(t_list *stack);
 int		find_position(t_list *stack, int value);
+int		get_target_pos(t_list *stack_a, int b_val);
 
 #endif

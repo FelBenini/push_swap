@@ -27,7 +27,8 @@ SRCS = ./src/main.c \
 	   ./src/validate.c \
 	   ./src/rotate_functions.c \
 	   ./src/sort_small.c \
-	   ./src/stack_finders.c
+	   ./src/stack_finders.c \
+	   ./src/turk_helpers.c
 
 OBJS = $(SRCS:.c=.o)
 

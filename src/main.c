@@ -44,6 +44,7 @@ int	main(int argc, char *argv[])
 		ft_putstr_fd("Error\n", 2);
 		return (0);
 	}
+	ft_printf("%d\n", get_target_pos(stack_a, 3));
 	if (is_stack_sorted(&stack_a, &stack_b))
 	{
 		ft_lstclear(&stack_a, free);
