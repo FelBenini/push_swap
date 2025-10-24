@@ -32,6 +32,7 @@ int		find_min(t_list *stack);
 int		find_max(t_list *stack);
 int		find_median(t_list *stack);
 int		find_index_by_value(t_list *stack, int value);
+int		find_best_move(t_list *stack_a, t_list *stack_b);
 int		get_target_pos(t_list *stack_a, int b_val);
 int		get_move_cost(t_list *stack_a, t_list *stack_b,
 			int index_a, int index_b);

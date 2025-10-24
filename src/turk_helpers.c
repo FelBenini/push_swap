@@ -28,7 +28,7 @@ int	get_target_pos(t_list *stack_a, int b_value)
 	{
 		current_value = *(int *)current->content;
 		current = current->next;
-		if (current_value > b_value)
+		if (current_value > b_value && current_value < greatest_value)
 		{
 			greatest_value = current_value;
 			res = i;

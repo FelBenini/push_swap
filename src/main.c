@@ -52,9 +52,6 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	sort_stack(&stack_a, &stack_b);
-	ft_lstiter(stack_a, test_put);
-	ft_printf("BBBBBBBBBBBBBBBBBBBBBBBBBBBBB\n");
-	ft_lstiter(stack_b, test_put);
 	ft_lstclear(&stack_a, free);
 	ft_lstclear(&stack_b, free);
 	return (0);

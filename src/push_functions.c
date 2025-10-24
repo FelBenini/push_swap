@@ -66,7 +66,6 @@ void	push_first_half(t_list **stack_a, t_list **stack_b)
 	int		size;
 
 	median = find_median(*stack_a);
-	ft_printf("%d\n", median);
 	size = ft_lstsize(*stack_a);
 	do_push_half(stack_a, stack_b, median, size);
 }
