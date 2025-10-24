@@ -6,7 +6,7 @@
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 13:42:40 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/22 15:18:20 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/23 16:56:30 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	sort_four(t_list **stack_a, t_list **stack_b)
 	int	min_pos;
 
 	min = find_min(*stack_a);
-	min_pos = find_position(*stack_a, min);
+	min_pos = find_index_by_value(*stack_a, min);
 	if (min_pos <= 2)
 	{
 		while (min_pos-- > 0)
@@ -80,7 +80,7 @@ static void	sort_rest_of_five(t_list **stack_a, t_list **stack_b)
 	int	min_pos;
 
 	min = find_min(*stack_a);
-	min_pos = find_position(*stack_a, min);
+	min_pos = find_index_by_value(*stack_a, min);
 	if (min_pos <= 2)
 	{
 		while (min_pos-- > 0)
@@ -103,7 +103,7 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 	int	min_pos;
 
 	min = find_min(*stack_a);
-	min_pos = find_position(*stack_a, min);
+	min_pos = find_index_by_value(*stack_a, min);
 	if (min_pos <= 2)
 	{
 		while (min_pos-- > 0)

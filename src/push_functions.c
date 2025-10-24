@@ -32,3 +32,41 @@ void	push(t_list **stack_a, t_list **stack_b, char *op)
 	if (ft_strncmp(op, "pb", 2) == 0)
 		push_from_stack(stack_a, stack_b);
 }
+
+static void	do_push_half(t_list **stack_a, t_list **stack_b,
+						int median, int size)
+{
+	int	i;
+	int	pushed;
+	int	current;
+	int	max;
+	int	min;
+
+	i = 0;
+	pushed = 0;
+	min = find_min(*stack_a);
+	max = find_max(*stack_a);
+	while (pushed < size / 2 && i < size)
+	{
+		current = *(int *)(*stack_a)->content;
+		if (current != min && current != max && current < median)
+		{
+			push(stack_a, stack_b, "pb");
+			pushed++;
+		}
+		else
+			rotate(stack_a, stack_b, "ra");
+		i++;
+	}
+}
+
+void	push_first_half(t_list **stack_a, t_list **stack_b)
+{
+	int		median;
+	int		size;
+
+	median = find_median(*stack_a);
+	ft_printf("%d\n", median);
+	size = ft_lstsize(*stack_a);
+	do_push_half(stack_a, stack_b, median, size);
+}

@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:11:25 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 14:18:57 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/23 20:46:26 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ char	*ft_utoa(unsigned int n);
 long	ft_ltoi(const char *nptr);
 char	*get_next_line(int fd);
 t_list	*ft_lstget_index(t_list *lst, size_t index);
+int		ft_abs(int value);
+void	ft_sort_int_tab(int *tab, int size);
 
 #endif

@@ -1,43 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turk_helpers.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/23 15:43:43 by fbenini-          #+#    #+#             */
+/*   Updated: 2025/10/23 18:16:42 by fbenini-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-static int	find_first_pos_greater(t_list *stack_a, int b_val)
+int	get_target_pos(t_list *stack_a, int b_value)
 {
-	int		curr;
 	t_list	*current;
-	int		pos;
+	int		current_value;
+	int		res;
+	int		i;
+	int		greatest_value;
 
 	current = stack_a;
-	pos = 0;
+	res = 0;
+	i = 0;
+	greatest_value = INT_MAX;
 	while (current)
 	{
-		curr = *(int *)current->content;
-		if (b_val < curr)
-			return (pos);
-		pos++;
+		current_value = *(int *)current->content;
 		current = current->next;
+		if (current_value > b_value)
+		{
+			greatest_value = current_value;
+			res = i;
+		}
+		i++;
 	}
-	return (0);
+	if (greatest_value == INT_MAX)
+		return (find_index_by_value(stack_a, find_min(stack_a)));
+	return (res);
 }
 
-int	get_target_pos(t_list *stack_a, int b_val)
+int	get_max(int value1, int value2)
 {
-	int		min_val;
-	int		max_val;
-	t_list	*current;
-
-	if (!stack_a)
-		return (0);
-	min_val = find_min(stack_a);
-	max_val = *(int *)stack_a->content;
-	current = stack_a;
-	while (current)
-	{
-		if (*(int *)current->content > max_val)
-			max_val = *(int *)current->content;
-		current = current->next;
-	}
-	if (b_val < min_val || b_val > max_val)
-		return (find_position(stack_a, min_val));
-	return (find_first_pos_greater(stack_a, b_val));
+	if (value1 > value2)
+		return (value1);
+	return (value2);
 }
 
+int	get_move_cost(t_list *stack_a, t_list *stack_b, int index_a, int index_b)
+{
+	int	size_a;
+	int	size_b;
+	int	cost_a;
+	int	cost_b;
+
+	size_a = ft_lstsize(stack_a);
+	size_b = ft_lstsize(stack_b);
+	cost_a = index_a - size_a;
+	if (index_a <= size_a / 2)
+		cost_a = index_a;
+	cost_b = index_b - size_b;
+	if (index_b <= size_b / 2)
+		cost_b = index_b;
+	if ((cost_a >= 0 && cost_b >= 0) || (cost_a < 0 && cost_b < 0))
+		return (get_max(ft_abs(cost_a), ft_abs(cost_b)));
+	return (ft_abs(cost_a) + ft_abs(cost_b));
+}
