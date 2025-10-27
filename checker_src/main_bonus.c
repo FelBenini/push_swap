@@ -101,6 +101,8 @@ int	main(int argc, char *argv[])
 
 	stack_a = NULL;
 	stack_b = NULL;
+	if (argc < 2)
+		return (0);
 	if (!init_stack_a(&stack_a, argc, argv))
 	{
 		ft_putstr_fd("Error\n", 2);
