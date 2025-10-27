@@ -6,11 +6,13 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/23 16:56:47 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/27 12:20:28 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+
+CHECKER = checker
 
 CC = cc
 
@@ -31,10 +33,22 @@ SRCS = ./src/main.c \
 	   ./src/turk_helpers.c \
 	   ./src/turk_sort.c
 
+CHECKER_SRCS = ./checker_src/main_bonus.c \
+			   ./checker_src/validate_bonus.c \
+			   ./checker_src/initializers_bonus.c \
+			   ./checker_src/push_bonus.c \
+			   ./checker_src/swap_bonus.c \
+			   ./checker_src/rotate_bonus.c
+
 OBJS = $(SRCS:.c=.o)
+
+CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 
 $(NAME): $(OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+
+$(CHECKER): $(CHECKER_OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(CHECKER_OBJS) -L$(LIBFT_DIR) -lft -o $(CHECKER)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -54,4 +68,6 @@ fclean: clean
 
 re: fclean $(NAME)
 
-.PHONY: all clean fclean re
+bonus: $(CHECKER)
+
+.PHONY: all clean fclean re bonus

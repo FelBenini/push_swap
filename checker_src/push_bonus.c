@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_int_tab.c                                     :+:      :+:    :+:   */
+/*   push_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/23 20:45:50 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/23 20:46:16 by fbenini-         ###   ########.fr       */
+/*   Created: 2025/10/27 12:20:48 by fbenini-          #+#    #+#             */
+/*   Updated: 2025/10/27 12:21:54 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static void	ft_swap(int *a, int *b)
-{
-	int	temp;
+#include "checker_bonus.h"
 
-	temp = *a;
-	*a = *b;
-	*b = temp;
+static void	push_from_stack(t_list **src, t_list **dest)
+{
+	t_list	*temp;
+
+	if (!src || !(*src))
+		return ;
+	temp = *src;
+	*src = (*src)->next;
+	temp->next = *dest;
+	*dest = temp;
 }
 
-void	ft_sort_int_tab(int *tab, int size)
+void	push(t_list **stack_a, t_list **stack_b, char *op)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (tab[i] <= tab[j])
-				ft_swap(&tab[i], &tab[j]);
-			j++;
-		}
-		i++;
-	}	
+	if (ft_strncmp(op, "pa", 2) == 0)
+		push_from_stack(stack_b, stack_a);
+	if (ft_strncmp(op, "pb", 2) == 0)
+		push_from_stack(stack_a, stack_b);
 }
