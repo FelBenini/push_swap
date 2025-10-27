@@ -6,7 +6,7 @@
 /*   By: fbenini- <your@mail.com>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:03:58 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/23 16:53:52 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/27 14:13:10 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # include <limits.h>
 
 int		init_stack_a(t_list **stack_a, int argc, char *argv[]);
+int		fill_numbers(t_list **stack_a, char *numbers);
+int		check_if_numbers(char **splitted_numbers);
 void	swap(t_list **stack_a, t_list **stack_b, char *op);
 int		is_stack_sorted(t_list **stack_a, t_list **stack_b);
 void	push(t_list **stack_a, t_list **stack_b, char *op);

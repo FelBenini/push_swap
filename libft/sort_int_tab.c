@@ -1,35 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   sort_int_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 11:37:54 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/27 11:38:02 by fbenini-         ###   ########.fr       */
+/*   Created: 2025/10/27 12:33:55 by fbenini-          #+#    #+#             */
+/*   Updated: 2025/10/27 12:34:04 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_realloc(void *ptr, size_t new_size)
+static void	ft_swap(int *a, int *b)
 {
-	void	*new_ptr;
+	int	temp;
 
-	if (ptr == NULL)
-		return (malloc(new_size));
-	if (new_size == 0)
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
+void	ft_sort_int_tab(int *tab, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
 	{
-		free(ptr);
-		return (NULL);
+		j = 0;
+		while (j < size)
+		{
+			if (tab[i] <= tab[j])
+				ft_swap(&tab[i], &tab[j]);
+			j++;
+		}
+		i++;
 	}
-	new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
-		return (NULL);
-	if (ptr)
-	{
-		ft_memcpy(new_ptr, ptr, new_size);
-		free(ptr);
-	}
-	return (new_ptr);
 }

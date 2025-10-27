@@ -6,7 +6,7 @@
 /*   By: fbenini- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/15 18:11:25 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/27 11:38:12 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/27 14:04:41 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,7 @@ char	*get_next_line(int fd);
 t_list	*ft_lstget_index(t_list *lst, size_t index);
 int		ft_abs(int value);
 void	*ft_realloc(void *ptr, size_t new_size);
+void	ft_sort_int_tab(int *tab, int size);
+int		check_overflow(char *str);
 
 #endif

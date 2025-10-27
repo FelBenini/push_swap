@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_realloc.c                                       :+:      :+:    :+:   */
+/*   check_overflow.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fbenini- <fbenini-@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/27 11:37:54 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/27 11:38:02 by fbenini-         ###   ########.fr       */
+/*   Created: 2025/10/27 14:02:53 by fbenini-          #+#    #+#             */
+/*   Updated: 2025/10/27 14:04:21 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <limits.h>
 
-void	*ft_realloc(void *ptr, size_t new_size)
+int	check_overflow(char *str)
 {
-	void	*new_ptr;
+	long int	lnum;
 
-	if (ptr == NULL)
-		return (malloc(new_size));
-	if (new_size == 0)
-	{
-		free(ptr);
-		return (NULL);
-	}
-	new_ptr = malloc(new_size);
-	if (new_ptr == NULL)
-		return (NULL);
-	if (ptr)
-	{
-		ft_memcpy(new_ptr, ptr, new_size);
-		free(ptr);
-	}
-	return (new_ptr);
+	lnum = ft_ltoi(str);
+	if (lnum > INT_MAX || lnum < INT_MIN)
+		return (0);
+	return (1);
 }

@@ -6,14 +6,14 @@
 /*   By: fbenini- <your@mail.com>                   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 16:12:51 by fbenini-          #+#    #+#             */
-/*   Updated: 2025/10/21 16:11:06 by fbenini-         ###   ########.fr       */
+/*   Updated: 2025/10/27 15:29:54 by fbenini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-static int	check_if_numbers(char **splitted_numbers)
+int	check_if_numbers(char **splitted_numbers)
 {
 	int		i;
 	int		j;
@@ -28,46 +28,17 @@ static int	check_if_numbers(char **splitted_numbers)
 				return (0);
 			j++;
 		}
-		while (splitted_numbers[i][j])
+		while (splitted_numbers[i][j++])
 		{
-			if (!ft_isdigit(splitted_numbers[i][j]))
+			if (!ft_isdigit(splitted_numbers[i][j - 1]))
 				return (0);
-			j++;
 		}
-		if (ft_ltoi(splitted_numbers[i]) > INT_MAX
-			|| ft_ltoi(splitted_numbers[i]) < INT_MIN)
+		if (!check_overflow(splitted_numbers[i]))
 			return (0);
 		i++;
 	}
-	return (1);
-}
-
-static int	fill_numbers(t_list **stack_a, char *numbers)
-{
-	char	**splitted;
-	int		i;
-	int		*num;
-
-	splitted = ft_split(numbers, ' ');
-	i = 0;
-	if (!check_if_numbers(splitted))
-	{
-		while (splitted[i])
-			free(splitted[i++]);
-		free(splitted);
+	if (i == 0)
 		return (0);
-	}
-	i = 0;
-	while (splitted[i++])
-	{
-		num = malloc(sizeof(int));
-		*num = ft_atoi(splitted[i - 1]);
-		ft_lstadd_back(stack_a, ft_lstnew(num));
-	}
-	i = 0;
-	while (splitted[i])
-		free(splitted[i++]);
-	free(splitted);
 	return (1);
 }
 

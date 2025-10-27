@@ -6,7 +6,7 @@
 #    By: fbenini- <your@mail.com>                   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/10 13:41:41 by fbenini-          #+#    #+#              #
-#    Updated: 2025/10/27 12:20:28 by fbenini-         ###   ########.fr        #
+#    Updated: 2025/10/27 14:21:01 by fbenini-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ./src/main.c \
 	   ./src/initializers.c \
+	   ./src/fill_numbers.c \
 	   ./src/swap_functions.c \
 	   ./src/push_functions.c \
 	   ./src/validate.c \
@@ -35,7 +36,8 @@ SRCS = ./src/main.c \
 
 CHECKER_SRCS = ./checker_src/main_bonus.c \
 			   ./checker_src/validate_bonus.c \
-			   ./checker_src/initializers_bonus.c \
+			   ./src/initializers.c \
+			   ./src/fill_numbers.c \
 			   ./checker_src/push_bonus.c \
 			   ./checker_src/swap_bonus.c \
 			   ./checker_src/rotate_bonus.c
@@ -61,12 +63,14 @@ all: $(NAME)
 clean:
 	@$(MAKE) clean -C $(LIBFT_DIR)
 	rm -rf $(OBJS)
+	rm -rf $(CHECKER_OBJS)
 
 fclean: clean
 	rm -rf $(LIBFT)
 	rm -rf $(NAME)
+	rm -rf $(CHECKER)
 
-re: fclean $(NAME)
+re: fclean $(NAME) $(CHECKER)
 
 bonus: $(CHECKER)
 
