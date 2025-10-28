@@ -76,19 +76,14 @@ static int	read_stdin(t_list **stack_a, t_list **stack_b)
 
 	while (read_input(&line))
 	{
-		if (line[0] == '\n')
+		if (!line || line[0] == '\n' || line[0] == '\0')
 		{
 			free(line);
 			break ;
 		}
 		operation = return_operation(line);
-		if (!operation)
-		{
-			free(line);
-			ft_putstr_fd("Error\n", 2);
-			return (0);
-		}
-		operation->function(stack_a, stack_b, line);
+		if (operation)
+			operation->function(stack_a, stack_b, line);
 		free(line);
 	}
 	return (1);
