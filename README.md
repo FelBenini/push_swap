@@ -50,4 +50,5 @@ make all
 ## References
 
 [Article by Yutong Deng on Turk Algorithm](https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0)
+
 [Algorithms Design in C by IME USP](https://www.ime.usp.br/~pf/algorithms/)
