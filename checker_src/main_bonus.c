@@ -84,6 +84,12 @@ static int	read_stdin(t_list **stack_a, t_list **stack_b)
 		operation = return_operation(line);
 		if (operation)
 			operation->function(stack_a, stack_b, line);
+		else
+		{
+			ft_putstr_fd("Error\n", 2);
+			free(line);
+			return (0);
+		}
 		free(line);
 	}
 	return (1);
